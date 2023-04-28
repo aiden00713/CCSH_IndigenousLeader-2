@@ -321,8 +321,8 @@ a:focus {
 .slider_section .detail-box a {
   display: inline-block;
   padding: 10px 45px;
-  border: 1px solid #54e346;
-  background-color: #54e346;
+  border: 1px solid #DAA520;
+  background-color: #DAA520;
   color: #ffffff;
   border-radius: 0;
   -webkit-transition: all 0.3s;
@@ -763,7 +763,7 @@ a:focus {
 
 /* info section */
 .info_section {
-  background-color: #0b214d;
+  background-color: #2F4F4F;
   color: #ffffff;
   padding: 75px 0 30px 0;
 }
