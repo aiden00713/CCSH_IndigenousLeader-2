@@ -1,153 +1,369 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-Hant">
 <head>
-  <!-- Basic -->
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <!-- Mobile Metas -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <!-- Site Metas -->
-  <meta name="keywords" content="" />
-  <meta name="description" content="2025年教育部高級中等學校原住民學生青年領袖培育營南區初階在國立潮州高中不見不散！" />
-  <meta name="author" content="" />
-  <link rel="shortcut icon" href="images/logo.png" type="">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="教育部高級中等學校原住民學生青年領袖培育營南區初階">
+  <link rel="shortcut icon" href="images/logo.png" type="image/png">
+  <title>教育部高級中等學校原住民學生青年領袖培育營 | 南區初階</title>
 
-  <title> 教育部高級中等學校原住民學生青年領袖培育營｜南區初階 </title>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/responsive.css" rel="stylesheet">
 
-  <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
-  <!-- font awesome style -->
-  <link href="css/font-awesome.min.css" rel="stylesheet" />
-  <!-- Custom styles for this template -->
-  <link href="css/style.css" rel="stylesheet" />
-  <!-- responsive style -->
-  <link href="css/responsive.css" rel="stylesheet" />
+  <style>
+    :root {
+      --silc-deep: #27303f;
+      --silc-accent: #f6b73c;
+      --silc-text: #1f2937;
+      --silc-muted: #667085;
+      --silc-border: #e5e7eb;
+    }
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WLW67H2H8T"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-  
-    gtag('config', 'G-WLW67H2H8T');
-  </script>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      color: var(--silc-text);
+      overflow-x: hidden;
+    }
+
+    .site-view[hidden] {
+      display: none !important;
+    }
+
+    .site-view {
+      scroll-margin-top: 24px;
+    }
+
+    .hero_area {
+      min-height: 100vh;
+    }
+
+    body:not(.home-view-active) .hero_area {
+      min-height: auto;
+      background: var(--silc-deep);
+    }
+
+    .custom_nav-container .navbar-nav .nav-item .nav-link {
+      cursor: pointer;
+    }
+
+    .custom_nav-container .navbar-nav .nav-item .nav-link.active {
+      color: var(--silc-accent);
+    }
+
+    .hero-title {
+      line-height: 1.35;
+      margin-bottom: 18px;
+    }
+
+    .hero-title small {
+      display: block;
+      margin-top: 12px;
+      font-size: 0.52em;
+      color: #ffffff;
+    }
+
+    .hero-copy {
+      max-width: 860px;
+      margin-bottom: 22px;
+      color: rgba(255,255,255,0.88);
+      line-height: 1.8;
+    }
+
+    .btn-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 26px;
+    }
+
+    .btn-box .btn1 {
+      margin: 0;
+    }
+
+    .video-frame {
+      width: min(100%, 720px);
+      aspect-ratio: 16 / 9;
+      border: 0;
+      border-radius: 8px;
+      background: #111827;
+    }
+
+    .content-section {
+      padding: 72px 0;
+      background: #ffffff;
+    }
+
+    .content-section.alt {
+      background: #f8fafc;
+    }
+
+    .page-heading {
+      margin-bottom: 28px;
+    }
+
+    .page-heading h2 {
+      font-weight: 800;
+      color: var(--silc-deep);
+    }
+
+    .page-heading p {
+      color: var(--silc-muted);
+      margin: 8px 0 0;
+    }
+
+    .cms-content {
+      font-size: 17px;
+      line-height: 1.9;
+    }
+
+    .cms-content img,
+    .notice-card img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .resource-grid,
+    .notice-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .resource-card,
+    .notice-card,
+    .empty-card {
+      border: 1px solid var(--silc-border);
+      border-radius: 8px;
+      padding: 18px;
+      background: #ffffff;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+    }
+
+    .resource-card h4,
+    .notice-card h4 {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 8px;
+      color: var(--silc-deep);
+    }
+
+    .resource-card p,
+    .notice-card p,
+    .empty-card {
+      color: var(--silc-muted);
+      line-height: 1.7;
+    }
+
+    .embed-frame,
+    .pdf-frame {
+      width: 100%;
+      min-height: 76vh;
+      border: 1px solid var(--silc-border);
+      border-radius: 8px;
+      background: #ffffff;
+    }
+
+    .pdf-frame {
+      height: 78vh;
+    }
+
+    .api-status {
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      z-index: 999;
+      max-width: min(360px, calc(100vw - 32px));
+      padding: 12px 14px;
+      border-radius: 8px;
+      background: rgba(17, 24, 39, 0.9);
+      color: #ffffff;
+      font-size: 14px;
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.25);
+    }
+
+    .api-status.success {
+      background: rgba(22, 101, 52, 0.92);
+    }
+
+    .api-status.error {
+      background: rgba(185, 28, 28, 0.94);
+    }
+
+    @media (max-width: 767px) {
+      .hero_area {
+        min-height: auto;
+      }
+
+      .slider_section {
+        padding: 72px 0 48px;
+      }
+
+      .hero-title {
+        font-size: 34px;
+      }
+
+      .content-section {
+        padding: 46px 0;
+      }
+
+      .btn-box {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn-box .btn1 {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
 
-<body>
-
+<body class="home-view-active">
   <div class="hero_area">
     <div class="hero_bg_box">
-      <img src="images/HEAD2.JPG" alt="">
+      <img id="heroImage" src="images/HEAD2.JPG" alt="活動主視覺">
     </div>
-    <!-- header section strats -->
+
     <header class="header_section">
       <div class="container">
-        <nav class="navbar navbar-expand-lg custom_nav-container ">
+        <nav class="navbar navbar-expand-lg custom_nav-container">
+          <a class="navbar-brand" href="#home" data-view-link="home">
+            <img id="siteLogo" src="images/logo.png" alt="Logo" style="height:48px;width:auto;">
+          </a>
 
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class=""> </span>
+            <span></span>
           </button>
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav  ">
-              <li class="nav-item">
-                <a class="nav-link" href="about.html">實施計畫</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="class.html">活動課程</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="info.html">活動系統</a>
-              </li>
+            <ul id="mainNav" class="navbar-nav">
+              <li class="nav-item"><a class="nav-link active" href="#home" data-view-link="home">首頁</a></li>
+              <li class="nav-item"><a class="nav-link" href="#about" data-view-link="about">實施計畫</a></li>
+              <li class="nav-item"><a class="nav-link" href="#class" data-view-link="class">活動課程</a></li>
+              <li class="nav-item"><a class="nav-link" href="#news" data-view-link="news">錄取學員</a></li>
+              <li class="nav-item"><a class="nav-link" href="#notice" data-view-link="notice">行前通知</a></li>
+              <li class="nav-item"><a class="nav-link" href="#reform" data-view-link="reform">推薦表上傳</a></li>
+              <li class="nav-item"><a class="nav-link" href="info.html">活動系統</a></li>
             </ul>
           </div>
         </nav>
       </div>
     </header>
-    <!-- end header section -->
-    <!-- slider section -->
-    <section class="slider_section ">
-      <div id="customCarousel1" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div class="container ">
-              <div class="row">
-                <div class="col-md-7 col-lg-10">
-                  <div class="detail-box">
-                    <h1>
-                      <b>教育部高級中等學校<p>原住民學生青年領袖培育營</p>南區初階</b>
-                    </h1>
-                    <p></p>
-                    <div class="btn-box">
-                      
-                      <a href="https://forms.gle/ZLHPguz724GcdDxP6" target="_blank" class="btn1">點擊報名</a>
-                      &emsp;&emsp;&emsp;
-                      <!--
-                      <a href="https://forms.gle/q8PpRCmWxG1i6cWs6" target="_blank" class="btn1">推薦表上傳</a>
-                      &emsp;&emsp;&emsp;
-                      <a href="news.html" class="btn1">錄取學員</a>
-                      &emsp;&emsp;&emsp;
-                      -->
-                      &emsp;&emsp;&emsp;
-                      <!-- <a href="notice.html" class="btn1">行前通知</a> -->
-                    </div>
-                    <p></p>
-                    <p></p>
-                  </div>
-                  <h4>&emsp;</h4>
-                  <div class="col-md-6 col-lg-8"  style="padding-left:0px">
-                    <div class="videobox">
-                      <iframe frameborder="0" src="https://www.youtube.com/embed/MD51Io48GNQ" allowFullScreen="true"></iframe>
-                    </div>
-                  </div>
-                </div>
-              </div>
+
+    <section class="site-view slider_section" id="view-home" data-view="home">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-10 col-lg-10">
+            <div class="detail-box">
+              <h1 id="homeTitle" class="hero-title">
+                教育部高級中等學校<br>原住民學生青年領袖培育營
+                <small id="homeSubtitle">南區初階</small>
+              </h1>
+              <div id="homeContent" class="hero-copy"></div>
+              <div id="homeButtons" class="btn-box"></div>
+              <iframe id="homeVideo" class="video-frame" src="https://www.youtube.com/embed/MD51Io48GNQ" title="活動影片" allowfullscreen loading="lazy"></iframe>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <!-- end slider section -->
   </div>
 
-  <!-- info section -->
+  <main>
+    <section class="site-view content-section" id="view-about" data-view="about" hidden>
+      <div class="container">
+        <div class="page-heading">
+          <h2 id="aboutTitle">實施計畫</h2>
+          <p id="aboutSubtitle"></p>
+        </div>
+        <div id="aboutContent" class="cms-content"></div>
+        <div id="aboutResources" class="resource-grid"></div>
+      </div>
+    </section>
+
+    <section class="site-view content-section alt" id="view-class" data-view="class" hidden>
+      <div class="container">
+        <div class="page-heading">
+          <h2 id="classTitle">活動課程</h2>
+          <p id="classSubtitle"></p>
+        </div>
+        <div id="classContent" class="cms-content"></div>
+        <div id="classEmbed"></div>
+      </div>
+    </section>
+
+    <section class="site-view content-section" id="view-news" data-view="news" hidden>
+      <div class="container">
+        <div class="page-heading">
+          <h2 id="newsTitle">錄取學員</h2>
+          <p id="newsSubtitle"></p>
+        </div>
+        <div id="newsContent" class="cms-content"></div>
+        <div id="admissionsArea"></div>
+      </div>
+    </section>
+
+    <section class="site-view content-section alt" id="view-notice" data-view="notice" hidden>
+      <div class="container">
+        <div class="page-heading">
+          <h2 id="noticeTitle">行前通知</h2>
+          <p id="noticeSubtitle"></p>
+        </div>
+        <div id="noticeContent" class="cms-content"></div>
+        <div id="noticeList" class="notice-grid"></div>
+      </div>
+    </section>
+
+    <section class="site-view content-section" id="view-reform" data-view="reform" hidden>
+      <div class="container">
+        <div class="page-heading">
+          <h2 id="reformTitle">推薦表上傳</h2>
+          <p id="reformSubtitle"></p>
+        </div>
+        <div id="reformContent" class="cms-content"></div>
+        <div id="reformResources" class="resource-grid"></div>
+        <div id="reformEmbed"></div>
+      </div>
+    </section>
+  </main>
+
   <section class="info_section">
     <div class="container">
       <div class="row info_main_row">
         <div class="col-md-4 info_col">
-          <h5>學校交通</h5>
+          <h5>活動地點</h5>
           <p>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.789721593673!2d120.54310071542497!3d22.549548485194645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e21eea9e83cb1%3A0x3e3323fe2eb373aa!2z5ZyL56uL5r2u5bee6auY57Sa5Lit5a24!5e0!3m2!1szh-TW!2stw!4v1583652074752!5m2!1szh-TW!2stw" width="300" height="200" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.789721593673!2d120.54310071542497!3d22.549548485194645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e21eea9e83cb1%3A0x3e3323fe2eb373aa!2z5ZyL56uL5r2u5bee6auY57Sa5Lit5a24!5e0!3m2!1szh-TW!2stw!4v1583652074752!5m2!1szh-TW!2stw" width="300" height="200" frameborder="0" style="border:0;" allowfullscreen loading="lazy"></iframe>
           </p>
         </div>
         <div class="col-md-4 info_col">
           <div class="info_form">
-            <h5>聯絡我們</h5>
+            <h5>聯絡資訊</h5>
             <div class="info_contact">
               <a>
                 <i class="fa fa-map-marker" aria-hidden="true"></i>
-                <span>
-                  920006&emsp;屏東縣潮州鎮中山路11號
-                </span>
+                <span>920006 屏東縣潮州鎮彭城路 1 號</span>
               </a>
-              <a href="tel:087882017#307">
+              <a id="footerPhone" href="tel:087882017#307">
                 <i class="fa fa-phone" aria-hidden="true"></i>
-                <span>
-                  08-7882017#307
-                </span>
+                <span>08-7882017#307</span>
               </a>
-              <a href="mailto:indigenous@apps.ccsh.ptc.edu.tw">
+              <a id="footerEmail" href="mailto:indigenous@apps.ccsh.ptc.edu.tw">
                 <i class="fa fa-envelope"></i>
-                <span>
-                  indigenous@apps.ccsh.ptc.edu.tw
-                </span>
+                <span>indigenous@apps.ccsh.ptc.edu.tw</span>
               </a>
-              <a href="https://www.ccsh.ptc.edu.tw" target="_blank">
+              <a id="footerSchool" href="https://www.ccsh.ptc.edu.tw" target="_blank" rel="noopener">
                 <i class="fa fa-sticky-note"></i>
-                <span>
-                  點我至學校網站
-                </span>
+                <span>潮州高中網站</span>
               </a>
             </div>
           </div>
@@ -155,34 +371,381 @@
         <div class="col-md-4 info_col">
           <h5>粉絲專頁</h5>
           <p>
-            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fccsh.indigenousleadersummercamp&tabs&width=300&height=121&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="350" height="80" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fccsh.indigenousleadersummercamp&tabs&width=300&height=121&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="350" height="80" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" loading="lazy"></iframe>
           </p>
-          <h5>LINE@官方帳號</h5>
-            <a href=""><img src="https://scdn.line-apps.com/n/line_add_friends/btn/zh-Hant.png" alt="加入好友" height="36" border="0"></a>
+          <h5>LINE@ 官方帳號</h5>
+          <a href="#"><img src="https://scdn.line-apps.com/n/line_add_friends/btn/zh-Hant.png" alt="加入好友" height="36" border="0"></a>
         </div>
       </div>
     </div>
   </section>
-  <!-- end info section -->
 
-  <!-- footer section -->
   <footer class="footer_section">
     <div class="container">
-      <p>
-        &copy; <span id="displayYear"></span> All Rights Reserved By
-        <a href="https://html.design/">Free Html Templates</a>
-      </p>
+      <p>&copy; <span id="displayYear"></span> 教育部高級中等學校原住民學生青年領袖培育營</p>
     </div>
   </footer>
-  <!-- footer section -->
 
-  <!-- jQery -->
+  <div id="apiStatus" class="api-status" hidden>資料載入中...</div>
+
   <script src="js/jquery-3.4.1.min.js"></script>
-  <!-- bootstrap js -->
   <script src="js/bootstrap.js"></script>
-  </script>
-  <!-- custom js -->
   <script src="js/custom.js"></script>
+  <script>
+    window.CCSH_API = {
+      url: 'https://script.google.com/macros/s/AKfycbwYxHMrBdMvDUfHEclXPOUTBBGm0D3PXupDhHKALtEBM1txdAe82hSR0y_pa-eg11S8/exec',
+      action: 'getPublicData'
+    };
 
+    var PAGE_ORDER = ['home', 'about', 'class', 'news', 'notice', 'reform'];
+    var PAGE_LABELS = {
+      home: '首頁',
+      about: '實施計畫',
+      class: '活動課程',
+      news: '錄取學員',
+      notice: '行前通知',
+      reform: '推薦表上傳'
+    };
+    var HOME_BUTTONS = {
+      home_registration_url: { label: '報名學員', fallback: 'https://forms.gle/ZLHPguz724GcdDxP6' },
+      home_recommend_upload_url: { label: '推薦表上傳', fallback: 'https://forms.gle/q8PpRCmWxG1i6cWs6' },
+      home_admission_pdf_url: { label: '錄取學員', fallback: '#news' },
+      home_notice_url: { label: '行前通知', fallback: '#notice' }
+    };
+
+    var siteData = {
+      settings: {},
+      pages: {},
+      documents: [],
+      forms: [],
+      notices: [],
+      admissions: [],
+      media: []
+    };
+
+    document.addEventListener('DOMContentLoaded', function () {
+      document.getElementById('displayYear').textContent = new Date().getFullYear();
+      bindRouting();
+      loadPublicData();
+    });
+
+    function loadPublicData() {
+      setStatus('資料載入中...', '');
+      jsonp(window.CCSH_API.url, {
+        action: window.CCSH_API.action
+      }).then(function (res) {
+        if (!res || !res.success) {
+          throw new Error((res && res.message) || 'API 回傳失敗');
+        }
+        siteData = normalizeData(res);
+        renderSite(siteData);
+        setStatus('已載入最新資料', 'success');
+        setTimeout(function () { hideStatus(); }, 1800);
+      }).catch(function (err) {
+        console.error(err);
+        setStatus('資料載入失敗，暫時顯示預設內容。', 'error');
+        renderSite(siteData);
+      });
+    }
+
+    function normalizeData(res) {
+      return {
+        settings: res.settings || {},
+        pages: res.pages || {},
+        documents: Array.isArray(res.documents) ? res.documents : [],
+        forms: Array.isArray(res.forms) ? res.forms : [],
+        notices: Array.isArray(res.notices) ? res.notices : [],
+        admissions: Array.isArray(res.admissions) ? res.admissions : [],
+        media: Array.isArray(res.media) ? res.media : []
+      };
+    }
+
+    function renderSite(data) {
+      renderSettings(data.settings);
+      renderNavigation(data.pages);
+      renderHome(data);
+      PAGE_ORDER.filter(function (key) { return key !== 'home'; }).forEach(function (key) {
+        renderPage(key, data);
+      });
+      updateActiveView(window.location.hash.replace('#', '') || 'home', false);
+      bindRouting();
+    }
+
+    function renderSettings(settings) {
+      var title = settings.site_title || '教育部高級中等學校原住民學生青年領袖培育營';
+      var subtitle = settings.site_subtitle || '南區初階';
+      document.title = title + ' | ' + subtitle;
+      setAttr('heroImage', 'src', resolveAssetUrl(settings.hero_image_url || 'images/HEAD2.JPG'));
+      setAttr('siteLogo', 'src', resolveAssetUrl(settings.logo_url || 'images/logo.png'));
+      setContact('footerPhone', 'tel:' + (settings.contact_phone || '08-7882017#307'), settings.contact_phone || '08-7882017#307');
+      setContact('footerEmail', 'mailto:' + (settings.contact_email || 'indigenous@apps.ccsh.ptc.edu.tw'), settings.contact_email || 'indigenous@apps.ccsh.ptc.edu.tw');
+      setContact('footerSchool', settings.school_url || 'https://www.ccsh.ptc.edu.tw', '國立潮州高中網站');
+    }
+
+    function renderNavigation(pages) {
+      var nav = document.getElementById('mainNav');
+      nav.innerHTML = PAGE_ORDER.map(function (key) {
+        var page = pages[key] || {};
+        var label = page.nav_label || PAGE_LABELS[key] || key;
+        return '<li class="nav-item"><a class="nav-link" href="#' + key + '" data-view-link="' + key + '">' + escapeHtml(label) + '</a></li>';
+      }).join('') + '<li class="nav-item"><a class="nav-link" href="info.html">活動登入</a></li>';
+    }
+
+    function renderHome(data) {
+      var settings = data.settings;
+      var page = data.pages.home || {};
+      var title = page.title || settings.site_title || '教育部高級中等學校原住民學生青年領袖培育營';
+      var subtitle = page.subtitle || settings.site_subtitle || '南區初階';
+      document.getElementById('homeTitle').innerHTML = escapeHtml(title) + '<small id="homeSubtitle">' + escapeHtml(subtitle) + '</small>';
+      document.getElementById('homeContent').innerHTML = page.content_html || '';
+
+      var videoUrl = page.embed_type === 'video' && page.embed_url ? page.embed_url : settings.youtube_url;
+      if (videoUrl) setAttr('homeVideo', 'src', toEmbedUrl(videoUrl));
+
+      var visibleKeys = String(settings.home_button_visible_keys || 'home_registration_url,home_recommend_upload_url')
+        .split(',')
+        .map(function (key) { return key.trim(); })
+        .filter(Boolean)
+        .slice(0, 2);
+
+      document.getElementById('homeButtons').innerHTML = visibleKeys.map(function (key) {
+        var meta = HOME_BUTTONS[key];
+        if (!meta) return '';
+        var url = settings[key] || meta.fallback;
+        return renderButton(meta.label, url);
+      }).join('');
+    }
+
+    function renderPage(key, data) {
+      var page = data.pages[key] || {};
+      setText(key + 'Title', page.title || PAGE_LABELS[key] || key);
+      setText(key + 'Subtitle', page.subtitle || '');
+      setHtml(key + 'Content', page.content_html || '');
+
+      if (key === 'about') {
+        renderResources('aboutResources', data.documents.filter(function (item) { return item.page_key === 'about'; }), 'document');
+        appendForms('aboutResources', data.forms.filter(function (item) { return item.page_key === 'about'; }));
+      }
+
+      if (key === 'class') {
+        setHtml('classEmbed', renderEmbed(page));
+      }
+
+      if (key === 'news') {
+        renderAdmissions(data, page);
+      }
+
+      if (key === 'notice') {
+        renderNotices(data.notices);
+      }
+
+      if (key === 'reform') {
+        renderResources('reformResources', data.documents.filter(function (item) { return item.page_key === 'reform'; }), 'document');
+        appendForms('reformResources', data.forms.filter(function (item) { return item.page_key === 'reform'; }));
+        setHtml('reformEmbed', renderEmbed(page));
+      }
+    }
+
+    function renderAdmissions(data, page) {
+      var area = document.getElementById('admissionsArea');
+      var activeAdmission = data.admissions[0];
+      var pdfUrl = page.embed_url || (activeAdmission && activeAdmission.pdf_url) || data.settings.home_admission_pdf_url || '';
+      if (!pdfUrl) {
+        area.innerHTML = '<div class="empty-card">尚未發布錄取名單。</div>';
+        return;
+      }
+      area.innerHTML = '<object class="pdf-frame" data="' + escapeHtml(resolveAssetUrl(pdfUrl)) + '" type="application/pdf">' +
+        '<p>無法顯示 PDF，請 <a href="' + escapeHtml(resolveAssetUrl(pdfUrl)) + '" target="_blank" rel="noopener">開啟錄取名單</a>。</p>' +
+        '</object>';
+    }
+
+    function renderNotices(notices) {
+      var list = document.getElementById('noticeList');
+      if (!notices.length) {
+        list.innerHTML = '<div class="empty-card">尚未發布行前通知。</div>';
+        return;
+      }
+      list.innerHTML = notices.map(function (notice) {
+        var image = notice.image_url ? '<img src="' + escapeHtml(resolveAssetUrl(notice.image_url)) + '" alt="' + escapeHtml(notice.title || '行前通知') + '">' : '';
+        var file = notice.file_url ? '<p>' + renderButton('下載附件', notice.file_url) + '</p>' : '';
+        return '<article class="notice-card">' +
+          '<h4>' + escapeHtml(notice.title || '行前通知') + '</h4>' +
+          image +
+          '<div class="cms-content">' + (notice.content_html || '') + '</div>' +
+          file +
+          '</article>';
+      }).join('');
+    }
+
+    function renderResources(targetId, items) {
+      var target = document.getElementById(targetId);
+      target.innerHTML = items.map(function (item) {
+        return renderResourceCard(item.title, item.description, item.file_url, item.file_type || '開啟文件');
+      }).join('');
+    }
+
+    function appendForms(targetId, forms) {
+      var target = document.getElementById(targetId);
+      target.innerHTML += forms.map(function (form) {
+        return renderResourceCard(form.title, '', form.form_url, form.button_label || '開啟表單');
+      }).join('');
+    }
+
+    function renderResourceCard(title, description, url, label) {
+      if (!url) return '';
+      return '<article class="resource-card">' +
+        '<h4>' + escapeHtml(title || label || '資源連結') + '</h4>' +
+        (description ? '<p>' + escapeHtml(description) + '</p>' : '') +
+        renderButton(label || '開啟連結', url) +
+        '</article>';
+    }
+
+    function renderEmbed(page) {
+      if (!page || !page.embed_url) return '';
+      var url = resolveAssetUrl(page.embed_url);
+      if (page.embed_type === 'pdf') {
+        return '<object class="pdf-frame" data="' + escapeHtml(url) + '" type="application/pdf">' +
+          '<p>無法顯示 PDF，請 <a href="' + escapeHtml(url) + '" target="_blank" rel="noopener">開啟文件</a>。</p>' +
+          '</object>';
+      }
+      if (page.embed_type === 'iframe' || page.embed_type === 'form' || page.embed_type === 'video') {
+        return '<iframe class="embed-frame" src="' + escapeHtml(toEmbedUrl(url)) + '" loading="lazy" allowfullscreen></iframe>';
+      }
+      if (page.embed_type === 'image') {
+        return '<img class="img-fluid" src="' + escapeHtml(url) + '" alt="' + escapeHtml(page.title || '') + '">';
+      }
+      return '';
+    }
+
+    function renderButton(label, url) {
+      var href = resolveAssetUrl(url || '#home');
+      var internal = href.charAt(0) === '#';
+      return '<a class="btn1" href="' + escapeHtml(href) + '"' + (internal ? ' data-view-link="' + escapeHtml(href.slice(1)) + '"' : ' target="_blank" rel="noopener"') + '>' + escapeHtml(label) + '</a>';
+    }
+
+    function bindRouting() {
+      var links = Array.prototype.slice.call(document.querySelectorAll('[data-view-link]'));
+      links.forEach(function (link) {
+        if (link.dataset.boundViewLink) return;
+        link.dataset.boundViewLink = 'true';
+        link.addEventListener('click', function (event) {
+          event.preventDefault();
+          updateActiveView(link.dataset.viewLink, true);
+        });
+      });
+
+      if (!window.__ccshHashBound) {
+        window.__ccshHashBound = true;
+        window.addEventListener('hashchange', function () {
+          updateActiveView(window.location.hash.replace('#', '') || 'home', false);
+        });
+      }
+    }
+
+    function updateActiveView(viewName, shouldScroll) {
+      var views = Array.prototype.slice.call(document.querySelectorAll('[data-view]'));
+      var known = views.map(function (view) { return view.dataset.view; });
+      var next = known.indexOf(viewName) >= 0 ? viewName : 'home';
+      views.forEach(function (view) {
+        view.hidden = view.dataset.view !== next;
+      });
+      document.querySelectorAll('[data-view-link]').forEach(function (link) {
+        link.classList.toggle('active', link.dataset.viewLink === next);
+      });
+      document.body.classList.toggle('home-view-active', next === 'home');
+      if (window.location.hash !== '#' + next) history.replaceState(null, '', '#' + next);
+      if (shouldScroll) {
+        if (next === 'home') window.scrollTo({ top: 0, behavior: 'smooth' });
+        else document.getElementById('view-' + next).scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      if (window.jQuery) $('.navbar-collapse').collapse('hide');
+    }
+
+    function jsonp(url, params) {
+      return new Promise(function (resolve, reject) {
+        var callbackName = 'ccshApiCallback_' + Date.now() + '_' + Math.floor(Math.random() * 10000);
+        var script = document.createElement('script');
+        var query = Object.keys(params || {}).map(function (key) {
+          return encodeURIComponent(key) + '=' + encodeURIComponent(params[key]);
+        });
+        query.push('callback=' + encodeURIComponent(callbackName));
+
+        window[callbackName] = function (data) {
+          cleanup();
+          resolve(data);
+        };
+
+        script.onerror = function () {
+          cleanup();
+          reject(new Error('API 載入失敗'));
+        };
+
+        script.src = url + (url.indexOf('?') >= 0 ? '&' : '?') + query.join('&');
+        document.body.appendChild(script);
+
+        function cleanup() {
+          delete window[callbackName];
+          if (script.parentNode) script.parentNode.removeChild(script);
+        }
+      });
+    }
+
+    function toEmbedUrl(url) {
+      if (!url) return '';
+      var watch = String(url).match(/[?&]v=([^&]+)/);
+      if (watch) return 'https://www.youtube.com/embed/' + watch[1];
+      return url;
+    }
+
+    function resolveAssetUrl(url) {
+      if (!url) return '';
+      if (/^(https?:)?\/\//.test(url) || url.charAt(0) === '#') return url;
+      if (url.charAt(0) === '/') return url.replace(/^\//, '');
+      return url;
+    }
+
+    function setText(id, value) {
+      var el = document.getElementById(id);
+      if (el) el.textContent = value || '';
+    }
+
+    function setHtml(id, value) {
+      var el = document.getElementById(id);
+      if (el) el.innerHTML = value || '';
+    }
+
+    function setAttr(id, attr, value) {
+      var el = document.getElementById(id);
+      if (el && value) el.setAttribute(attr, value);
+    }
+
+    function setContact(id, href, text) {
+      var el = document.getElementById(id);
+      if (!el) return;
+      el.href = href;
+      var span = el.querySelector('span');
+      if (span) span.textContent = text;
+    }
+
+    function setStatus(message, type) {
+      var status = document.getElementById('apiStatus');
+      status.hidden = false;
+      status.className = 'api-status ' + (type || '');
+      status.textContent = message;
+    }
+
+    function hideStatus() {
+      document.getElementById('apiStatus').hidden = true;
+    }
+
+    function escapeHtml(value) {
+      return String(value == null ? '' : value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+  </script>
 </body>
 </html>
