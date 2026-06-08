@@ -235,14 +235,93 @@
     .embed-frame,
     .pdf-frame {
       width: 100%;
-      min-height: 76vh;
       border: 1px solid var(--silc-border);
       border-radius: 8px;
       background: #ffffff;
     }
 
+    .embed-frame {
+      min-height: 76vh;
+    }
+
+    .pdf-viewer {
+      width: 100%;
+      border-radius: 8px;
+    }
+
     .pdf-frame {
-      height: 78vh;
+      display: block;
+      height: min(82vh, 920px);
+      min-height: 620px;
+    }
+
+    .pdf-actions {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 10px;
+    }
+
+    .pdf-open-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: var(--silc-deep);
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    .pdf-open-link:hover {
+      color: #ffffff;
+      text-decoration: none;
+      background: #111827;
+    }
+
+    .info_main_row {
+      row-gap: 28px;
+    }
+
+    .info_col {
+      min-width: 0;
+    }
+
+    .info_col p {
+      margin-bottom: 12px;
+    }
+
+    .info-frame {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      border: 0;
+      border-radius: 8px;
+      background: #ffffff;
+    }
+
+    .map-frame {
+      height: 220px;
+    }
+
+    .facebook-frame {
+      height: 120px;
+    }
+
+    .info_contact a {
+      align-items: flex-start;
+      gap: 8px;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    .info_contact a i {
+      flex: 0 0 auto;
+      margin-top: 3px;
+    }
+
+    #footerLine img {
+      max-width: 100%;
+      height: auto;
     }
 
     .api-status {
@@ -292,6 +371,35 @@
       .btn-box .btn1 {
         width: 100%;
         text-align: center;
+      }
+
+      .pdf-frame {
+        height: 72vh;
+        min-height: 520px;
+      }
+
+      .pdf-actions {
+        justify-content: stretch;
+      }
+
+      .pdf-open-link {
+        width: 100%;
+      }
+
+      .info_section {
+        text-align: left;
+      }
+
+      .info_col + .info_col {
+        margin-top: 10px;
+      }
+
+      .map-frame {
+        height: 240px;
+      }
+
+      .facebook-frame {
+        height: 135px;
       }
     }
   </style>
@@ -412,7 +520,7 @@
         <div class="col-md-4 info_col">
           <h5>活動地點</h5>
           <p>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.789721593673!2d120.54310071542497!3d22.549548485194645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e21eea9e83cb1%3A0x3e3323fe2eb373aa!2z5ZyL56uL5r2u5bee6auY57Sa5Lit5a24!5e0!3m2!1szh-TW!2stw!4v1583652074752!5m2!1szh-TW!2stw" width="300" height="200" frameborder="0" style="border:0;" allowfullscreen loading="lazy"></iframe>
+            <iframe class="info-frame map-frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.789721593673!2d120.54310071542497!3d22.549548485194645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e21eea9e83cb1%3A0x3e3323fe2eb373aa!2z5ZyL56uL5r2u5bee6auY57Sa5Lit5a24!5e0!3m2!1szh-TW!2stw!4v1583652074752!5m2!1szh-TW!2stw" title="活動地點 Google 地圖" allowfullscreen loading="lazy"></iframe>
           </p>
         </div>
         <div class="col-md-4 info_col">
@@ -441,7 +549,7 @@
         <div class="col-md-4 info_col">
           <h5>粉絲專頁</h5>
           <p>
-            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fccsh.indigenousleadersummercamp&tabs&width=300&height=121&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="350" height="80" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" loading="lazy"></iframe>
+            <iframe class="info-frame facebook-frame" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fccsh.indigenousleadersummercamp&tabs&width=300&height=121&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" title="粉絲專頁" scrolling="no" allowTransparency="true" allow="encrypted-media" loading="lazy"></iframe>
           </p>
           <h5>LINE@ 官方帳號</h5>
           <a id="footerLine" href="#" target="_blank" rel="noopener"><img src="https://scdn.line-apps.com/n/line_add_friends/btn/zh-Hant.png" alt="加入好友" height="36" border="0"></a>
@@ -625,9 +733,7 @@
         area.innerHTML = '<div class="empty-card">尚未發布錄取名單。</div>';
         return;
       }
-      area.innerHTML = '<object class="pdf-frame" data="' + escapeHtml(resolveAssetUrl(pdfUrl)) + '" type="application/pdf">' +
-        '<p>無法顯示 PDF，請 <a href="' + escapeHtml(resolveAssetUrl(pdfUrl)) + '" target="_blank" rel="noopener">開啟錄取名單</a>。</p>' +
-        '</object>';
+      area.innerHTML = renderPdfViewer(pdfUrl, '錄取名單');
     }
 
     function renderNotices(notices) {
@@ -675,9 +781,7 @@
       if (!page || !page.embed_url) return '';
       var url = resolveAssetUrl(page.embed_url);
       if (page.embed_type === 'pdf') {
-        return '<object class="pdf-frame" data="' + escapeHtml(url) + '" type="application/pdf">' +
-          '<p>無法顯示 PDF，請 <a href="' + escapeHtml(url) + '" target="_blank" rel="noopener">開啟文件</a>。</p>' +
-          '</object>';
+        return renderPdfViewer(url, page.title || 'PDF 文件');
       }
       if (page.embed_type === 'iframe' || page.embed_type === 'form' || page.embed_type === 'video') {
         return '<iframe class="embed-frame" src="' + escapeHtml(toEmbedUrl(url)) + '" loading="lazy" allowfullscreen></iframe>';
@@ -686,6 +790,32 @@
         return '<img class="img-fluid" src="' + escapeHtml(url) + '" alt="' + escapeHtml(page.title || '') + '">';
       }
       return '';
+    }
+
+    function renderPdfViewer(pdfUrl, label) {
+      var url = resolveAssetUrl(pdfUrl);
+      var viewerUrl = toPdfViewerUrl(url);
+      var safeLabel = escapeHtml(label || 'PDF 文件');
+      return '<div class="pdf-viewer">' +
+        '<iframe class="pdf-frame" src="' + escapeHtml(viewerUrl) + '" title="' + safeLabel + '" loading="lazy"></iframe>' +
+        '<div class="pdf-actions"><a class="pdf-open-link" href="' + escapeHtml(url) + '" target="_blank" rel="noopener">另開 ' + safeLabel + '</a></div>' +
+        '</div>';
+    }
+
+    function toPdfViewerUrl(url) {
+      var absoluteUrl = toAbsoluteUrl(url);
+      if (!absoluteUrl) return '';
+      return 'https://docs.google.com/gview?embedded=1&url=' + encodeURIComponent(absoluteUrl);
+    }
+
+    function toAbsoluteUrl(url) {
+      if (!url) return '';
+      if (url.charAt(0) === '#') return url;
+      try {
+        return new URL(url, window.location.href).href;
+      } catch (err) {
+        return url;
+      }
     }
 
     function renderButton(label, url) {
