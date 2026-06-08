@@ -300,7 +300,7 @@
 <body class="home-view-active">
   <div class="hero_area">
     <div class="hero_bg_box">
-      <img id="heroImage" src="images/HEAD2.JPG" alt="活動主視覺">
+      <img id="heroImage" src="images/photo.jpg">
     </div>
 
     <header class="header_section">
@@ -444,7 +444,7 @@
             <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fccsh.indigenousleadersummercamp&tabs&width=300&height=121&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="350" height="80" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" loading="lazy"></iframe>
           </p>
           <h5>LINE@ 官方帳號</h5>
-          <a href="#"><img src="https://scdn.line-apps.com/n/line_add_friends/btn/zh-Hant.png" alt="加入好友" height="36" border="0"></a>
+          <a id="footerLine" href="#" target="_blank" rel="noopener"><img src="https://scdn.line-apps.com/n/line_add_friends/btn/zh-Hant.png" alt="加入好友" height="36" border="0"></a>
         </div>
       </div>
     </div>
@@ -545,11 +545,12 @@
       var title = settings.site_title || '教育部高級中等學校原住民學生青年領袖培育營';
       var subtitle = settings.site_subtitle || '南區初階';
       document.title = title + ' | ' + subtitle;
-      setAttr('heroImage', 'src', resolveAssetUrl(settings.hero_image_url || 'images/HEAD2.JPG'));
+      setAttr('heroImage', 'src', resolveAssetUrl(settings.hero_image_url || 'images/photo.jpg'));
       setAttr('siteLogo', 'src', resolveAssetUrl(settings.logo_url || 'images/logo.png'));
       setContact('footerPhone', 'tel:' + (settings.contact_phone || '08-7882017#307'), settings.contact_phone || '08-7882017#307');
       setContact('footerEmail', 'mailto:' + (settings.contact_email || 'indigenous@apps.ccsh.ptc.edu.tw'), settings.contact_email || 'indigenous@apps.ccsh.ptc.edu.tw');
       setContact('footerSchool', settings.school_url || 'https://www.ccsh.ptc.edu.tw', '國立潮州高中網站');
+      setLineAccount(settings.lineid || '');
     }
 
     function renderNavigation(pages) {
@@ -564,9 +565,9 @@
     function renderHome(data) {
       var settings = data.settings;
       var page = data.pages.home || {};
-      var title = page.title || settings.site_title || '教育部高級中等學校原住民學生青年領袖培育營';
+      var title = page.title || settings.site_title || '教育部高級中等學校<br>原住民學生青年領袖培育營';
       var subtitle = page.subtitle || settings.site_subtitle || '南區初階';
-      document.getElementById('homeTitle').innerHTML = escapeHtml(title) + '<small id="homeSubtitle">' + escapeHtml(subtitle) + '</small>';
+      document.getElementById('homeTitle').innerHTML = formatTitleLineBreaks(title) + '<small id="homeSubtitle">' + escapeHtml(subtitle) + '</small>';
       document.getElementById('homeContent').innerHTML = page.content_html || '';
 
       var videoUrl = page.embed_type === 'video' && page.embed_url ? page.embed_url : settings.youtube_url;
@@ -797,6 +798,17 @@
       if (span) span.textContent = text;
     }
 
+    function setLineAccount(lineid) {
+      var el = document.getElementById('footerLine');
+      if (!el) return;
+      var value = String(lineid || '').trim();
+      if (!value) {
+        el.href = '#';
+        return;
+      }
+      el.href = /^https?:\/\//i.test(value) ? value : 'https://line.me/ti/p/' + encodeURIComponent(value);
+    }
+
     function setStatus(message, type) {
       var status = document.getElementById('apiStatus');
       status.hidden = false;
@@ -815,6 +827,10 @@
         .replace(/>/g, '&gt;')
         .replace(/"/g, '&quot;')
         .replace(/'/g, '&#039;');
+    }
+
+    function formatTitleLineBreaks(value) {
+      return escapeHtml(value).replace(/&lt;br\s*\/?&gt;/gi, '<br>');
     }
   </script>
 </body>
