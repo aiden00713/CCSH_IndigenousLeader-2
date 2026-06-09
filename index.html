@@ -812,18 +812,11 @@
 
     function renderPdfViewer(pdfUrl, label) {
       var url = resolveAssetUrl(pdfUrl);
-      var viewerUrl = toPdfViewerUrl(url);
       var safeLabel = escapeHtml(label || 'PDF 文件');
       return '<div class="pdf-viewer">' +
-        '<iframe class="pdf-frame" src="' + escapeHtml(viewerUrl) + '" title="' + safeLabel + '" loading="lazy"></iframe>' +
+        '<iframe class="pdf-frame" src="' + escapeHtml(url) + '" title="' + safeLabel + '" loading="lazy"></iframe>' +
         '<div class="pdf-actions"><a class="pdf-open-link" href="' + escapeHtml(url) + '" target="_blank" rel="noopener">另開 ' + safeLabel + '</a></div>' +
         '</div>';
-    }
-
-    function toPdfViewerUrl(url) {
-      var absoluteUrl = toAbsoluteUrl(url);
-      if (!absoluteUrl) return '';
-      return 'https://mozilla.github.io/pdf.js/web/viewer.html?file=' + encodeURIComponent(absoluteUrl);
     }
 
     function toAbsoluteUrl(url) {
