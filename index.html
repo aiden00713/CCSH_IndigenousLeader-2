@@ -815,8 +815,12 @@
       var safeLabel = escapeHtml(label || 'PDF 文件');
       return '<div class="pdf-viewer">' +
         '<iframe class="pdf-frame" src="' + escapeHtml(url) + '" title="' + safeLabel + '" loading="lazy"></iframe>' +
-        '<div class="pdf-actions"><a class="pdf-open-link" href="' + escapeHtml(url) + '" target="_blank" rel="noopener">另開 ' + safeLabel + '</a></div>' +
-        '</div>';
+        '<div class="pdf-actions">' +
+          '<a class="pdf-open-link" href="' + escapeHtml(url) + '" target="_blank" rel="noopener noreferrer">' +
+            '手機版可能無法正常預覽，建議點此另開檔案查看：' + safeLabel +
+          '</a>' +
+        '</div>' +
+      '</div>';
     }
 
     function toAbsoluteUrl(url) {
