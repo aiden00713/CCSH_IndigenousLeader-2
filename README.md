@@ -1,103 +1,109 @@
-# 教育部高級中等學校原住民學生青年領袖培育營｜南區初階
+# 教育部高級中等學校原住民學生青年領袖培育營
 
-這個專案是「教育部高級中等學校原住民學生青年領袖培育營｜南區初階」活動網站，提供活動資訊、實施計畫、課程內容、報名與推薦表上傳連結、錄取名單、活動系統入口與歷年文件整理。
+這個專案是「教育部高級中等學校原住民學生青年領袖培育營｜南區初階」活動網站，部署在 GitHub Pages。前台主要由 `index.html` 提供單頁式內容瀏覽，資料來源則透過 Google Apps Script API 由 CMS 後台管理。
 
-網站以靜態 HTML/CSS/JavaScript 建置，可直接部署於 GitHub Pages，並透過 `CNAME` 設定自訂網域。主要內容已整合為單頁式 `index.html`，使用者可透過頁面選單切換各活動區域。
-
-## 網站內容
-
-- `index.html`：網站主頁與單頁式內容入口，包含首頁、實施計畫、活動課程、錄取學員、行前通知與推薦表上傳區域。
-- `info.html`：活動系統入口，嵌入 Google Apps Script 活動系統。
-- `archive/`：封存舊系統頁面，例如作業上傳、學員系統、報到頁面等。
-
-## 專案結構
+## 專案架構
 
 ```text
 .
-├── archive/          # 已封存的舊頁面
-├── css/              # Bootstrap、主要樣式與響應式樣式
-├── document/         # 活動文件、表單、PDF、圖片資料
-│   ├── 112/          # 112 年活動文件
-│   └── 113/          # 113 年活動文件
-├── fonts/            # Font Awesome 字型檔
-├── images/           # 網站圖片、Logo、Icon
-├── js/               # jQuery、Bootstrap 與自訂腳本
+├── archive/          # 舊版頁面與封存檔案
+├── css/              # Bootstrap 與網站樣式
+├── document/         # 活動文件、PDF、附件
+├── fonts/            # Font Awesome 字型
+├── images/           # 網站圖片與 Logo
+├── js/               # jQuery、Bootstrap、客製 JS
 ├── CNAME             # GitHub Pages 自訂網域設定
 ├── LICENSE           # MIT License
-├── index.html        # 單頁式活動網站
+├── README.md         # 專案說明
+├── index.html        # GitHub Pages 前台主頁
 └── info.html         # 活動系統入口
 ```
 
-## 單頁區域
+## 前台頁面
 
-`index.html` 使用 hash routing 顯示不同內容區塊：
+`index.html` 採用 hash routing，將多個內容頁整合在同一個頁面中：
 
-- `#home`：首頁主視覺與快速入口。
-- `#about`：實施計畫與表單下載。
-- `#class`：活動課程。
-- `#news`：錄取學員。
-- `#notice`：行前通知。
-- `#reform`：推薦表上傳。
+- `#home`：首頁
+- `#about`：實施計畫
+- `#class`：活動課程
+- `#news`：錄取學員
+- `#notice`：行前通知
+- `#reform`：推薦表上傳
 
-每個內容區塊都保留 `data-api-view` 屬性，之後可依區域串接 Google Apps Script API 載入後台資料。
+導覽列由 API 回傳的頁面名稱更新，並保留 `info.html` 作為「活動系統」入口。
 
-## 使用技術
+## CMS 與 API
 
-- HTML5
-- CSS3 / SCSS
-- Bootstrap
-- jQuery
-- Font Awesome
-- Google Analytics
-- Google Forms
-- Google Apps Script iframe
-- Google Apps Script API ready
-- GitHub Pages
+前台透過 Google Apps Script Web App 取得最新資料：
+
+```js
+window.CCSH_API = {
+  url: 'https://script.google.com/macros/s/AKfycbwv-pxqk1VQ-i3XZpFMWaLhLOu6ToQTXVIdVPWpbRQpt2Y7ENU76zbukwPMHsySrsFX/exec',
+  action: 'getPublicData'
+};
+```
+
+CMS 後台可管理：
+
+- 首頁內容與首頁按鈕連結
+- 實施計畫
+- 活動課程
+- 錄取學員 PDF
+- 行前通知
+- 推薦表上傳
+- LINE@ 官方帳號 ID
+- 網站聯絡資訊與部分媒體設定
+
+首頁主標題「教育部高級中等學校<br>原住民學生青年領袖培育營」是前台固定樣式，不會被 API 內容覆蓋。
+
+## 內容顯示規則
+
+- CMS 內容欄位使用 Quill 編輯器產生 HTML。
+- 前台會直接渲染 CMS 回傳的 `content_html`。
+- 首頁最多顯示 2 個主要按鈕，由 CMS 設定顯示項目與連結。
+- PDF 直接以 iframe 嵌入原始 PDF URL，並提供「另開 PDF」按鈕。
+- 外部 PDF 來源若禁止 iframe 顯示，使用者仍可透過「另開 PDF」開啟檔案。
+- 頁尾包含活動地點、聯絡方式、Facebook 粉絲專頁與 LINE@ 官方帳號，已調整為 RWD 顯示。
 
 ## 本機預覽
 
-此專案是靜態網站，不需要安裝後端或建置工具。可以直接用瀏覽器開啟：
-
-```text
-index.html
-```
-
-若要用本機伺服器預覽，也可以在專案根目錄執行：
+可用簡易靜態伺服器預覽：
 
 ```powershell
 python -m http.server 8000
 ```
 
-然後開啟：
+開啟：
 
 ```text
 http://localhost:8000
 ```
 
+因為正式資料來自 Apps Script API，本機預覽時仍需網路連線才能載入 CMS 資料。
+
 ## 部署
 
-此專案可透過 GitHub Pages 部署。推送到 `main` 分支後，GitHub Pages 會依 repository 設定更新網站。
+網站由 GitHub Pages 部署，主要分支為 `main`。推送到 GitHub 後，GitHub Pages 會自動更新。
 
-自訂網域設定於：
+自訂網域設定在：
 
 ```text
 CNAME
 ```
 
-目前網域為：
+目前網域：
 
 ```text
 wilc.work
 ```
 
-## 維護注意事項
+## 維護備註
 
-- 更新活動年份時，請同步檢查首頁、實施計畫、錄取名單、表單下載與 Google Forms 連結。
-- 新年度文件建議放在 `document/` 下，歷年資料可依年度建立子資料夾保存。
-- 若頁面引用 PDF 或圖片，請確認檔案路徑與大小寫正確，避免 GitHub Pages 上無法載入。
-- 若要串接 Google Apps Script API，可先設定 `index.html` 內的 `window.CCSH_API.baseUrl`，再依 `data-api-view` 對應區塊載入資料。
-- `archive/` 內為封存頁面，若不再提供公開入口，仍可作為歷史備份使用。
+- 修改前台顯示邏輯時，主要編輯 `index.html`。
+- 修改 CMS 後台時，需到 `silc_api` Apps Script 專案更新並使用 `clasp push` 推送。
+- 舊頁面已移至 `archive/`，目前前台以 `index.html` 和 `info.html` 為主。
+- 若更換 PDF 來源，建議使用可公開存取且允許瀏覽器開啟的網址。
 
-## 授權
+## License
 
-本專案採用 MIT License，詳見 `LICENSE`。
+MIT License。詳見 `LICENSE`。
